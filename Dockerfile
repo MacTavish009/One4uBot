@@ -5,7 +5,6 @@ FROM alpine:edge
 # We have to uncomment Community repo for some packages
 #
 RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 
 #
 # Installing Packages
@@ -42,15 +41,12 @@ RUN apk add --no-cache=true --update \
     pv \
     jq \
     wget \
-    python \
-    python-dev \
     python3 \
     python3-dev \
     readline-dev \
     sqlite \
     ffmpeg \
     sqlite-dev \
-    sudo \
     chromium \
     chromium-chromedriver \
     zlib-dev \
@@ -71,7 +67,7 @@ RUN python3 -m ensurepip \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b sql-extended https://github.com/MoveAngel/One4uBot /root/userbot
+RUN git clone -b sql-extended https://github.com/MacTavish009/One4uBot /root/userbot
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 
